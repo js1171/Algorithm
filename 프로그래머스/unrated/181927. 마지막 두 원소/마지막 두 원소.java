@@ -8,11 +8,7 @@ class Solution {
             list[i] = num_list[i];
         }
         
-        if (a > b) {
-            list[n] = a-b;
-        } else {
-            list[n] = a*2;
-        }
+        list[n] = a > b ? a-b : a*2 ;
         return list;
     }
 }
