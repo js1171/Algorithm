@@ -5,11 +5,6 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         
-        if(n%2==0) {
-            System.out.print(n + " is even");
-        }
-        else {
-            System.out.print(n + " is odd");
-        }
+        System.out.print( n%2==0 ? n + " is even" : n + " is odd");
     }
 }
