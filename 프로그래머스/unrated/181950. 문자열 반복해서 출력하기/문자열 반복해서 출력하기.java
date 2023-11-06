@@ -6,6 +6,6 @@ public class Solution {
         String str = sc.next();
         int n = sc.nextInt();
         
-        System.out.print(str.repeat(n));
+        System.out.print(str.repeat(n));        // repeat함수 : str.repeat(n); "str을 n번 반복"
     }
 }
