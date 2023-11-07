@@ -17,9 +17,7 @@ class Solution {
             else {
                 stk.remove(stk.size()-1);
             }
-            
         }
-        
         int[] answer = new int[stk.size()];
         for (int i=0 ; i < stk.size() ; i++) {
             answer[i] = stk.get(i);
