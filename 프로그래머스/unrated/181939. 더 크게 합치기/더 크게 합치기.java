@@ -1,17 +1,9 @@
 class Solution {
     public int solution(int a, int b) {
-        int answer = 0;
+        String sa = Integer.toString(a);
+        String sb = Integer.toString(b);
         
-        int one = Integer.parseInt(Integer.toString(a) + Integer.toString(b));
-        int two = Integer.parseInt(Integer.toString(b) + Integer.toString(a));
-        
-        if (one > two) {
-            return one;
-        }
-        else {
-            return two;
-        }
-        
+        return Integer.parseInt(sa+sb) < Integer.parseInt(sb+sa) ? Integer.parseInt(sb+sa) : Integer.parseInt(sa+sb);
         
     }
 }
