@@ -1,15 +1,16 @@
 class Solution {
     public int solution(int[] num_list) {
-        String h="", j="";
+        StringBuilder j = new StringBuilder();
+        StringBuilder h = new StringBuilder();
         
         for (int i=0 ; i < num_list.length ; i++) {
             if (num_list[i]%2==0) {
-                j += num_list[i];
+                j.append(num_list[i]);
             }
             else {
-                h += num_list[i];
+                h.append(num_list[i]);
             }
         }
-        return Integer.parseInt(j) + Integer.parseInt(h);
+        return Integer.parseInt(j.toString()) + Integer.parseInt(h.toString());
     }
 }
