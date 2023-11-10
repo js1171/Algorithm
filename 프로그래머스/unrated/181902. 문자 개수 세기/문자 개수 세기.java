@@ -1,13 +1,12 @@
+import java.util.*;
+
 class Solution {
     public int[] solution(String my_string) {
-        int[] answer = new int[52];
-        for(int i = 0; i < my_string.length(); i++){
-            char c = my_string.charAt(i);
-            if(c >= 'a')
-                answer[c - 'a' + 26]++;
-            else
-                answer[c - 'A']++;
-        }
-        return answer;
+        String alpa = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        int[] arr = new int[52];
+        Arrays.fill(arr, 0);
+
+        for (char a : my_string.toCharArray()) arr[alpa.indexOf(a)] += 1;
+        return arr;
     }
 }
