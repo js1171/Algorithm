@@ -1,12 +1,11 @@
 class Solution {
     public double solution(int[] numbers) {
-        int sum=0;
-        double count=0;
-        for (int i=0 ; i < numbers.length ; i++) {
-            sum += numbers[i];
-            count++;
+        double answer = 0;
+        for(int i : numbers){
+            answer+=i;
         }
-        double answer = sum/count;
+
+        answer /= numbers.length;
         return answer;
     }
 }
