@@ -1,4 +1,4 @@
-# Algorithm
+# 💡Algorithm
 
 ### 풀이 정리 notion
 
