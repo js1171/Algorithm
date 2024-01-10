@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Main {
 
@@ -13,16 +14,8 @@ public class Main {
             arr[i] = Integer.parseInt(br.readLine());
         }
 
-        int c = 0;
-        for(int i=0 ; i < count-1 ; i++) {
-            for(int j=0 ; j < count-1-i ; j++) {
-                if(arr[j+1] < arr[j]) {
-                    c =arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = c;
-                }
-            }
-        }
+        Arrays.sort(arr);
+
         for(int i : arr) {
             System.out.println(i);
         }
