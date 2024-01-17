@@ -7,8 +7,7 @@ public class Main {
     static int[] dx = {0,0,1,-1};
     static int[] dy = {1,-1,0,0};
 
-    static String[][] arrFirst;
-    static String[][] arrSecond;
+    static String[][] arr;
     static boolean[][] visited;
 
     static int count = 0;
@@ -20,21 +19,14 @@ public class Main {
 
         count = Integer.parseInt(br.readLine());
 
-        arrFirst = new String[count][count];
-        arrSecond = new String[count][count];
+        arr = new String[count][count];
         visited = new boolean[count][count];
 
         for(int i=0 ; i < count ; i++) {
             String list = br.readLine();
             for(int j=0 ; j < count ; j++) {
                 String str = list.substring(j, j+1);
-                arrFirst[j][i] = str;
-                if(str.equals("G")) {
-                    arrSecond[j][i] = "R";
-                }
-                else {
-                    arrSecond[j][i] = str;
-                }
+                arr[j][i] = str;
             }
         }
 
@@ -43,7 +35,7 @@ public class Main {
         for(int i=0 ; i < count ; i++) {
             for(int j=0 ; j < count ; j++) {
                 if(!visited[j][i]) {
-                    bfs(j,i, arrFirst);
+                    bfs(j,i);
                     countFirst++;
                 }
             }
@@ -54,8 +46,14 @@ public class Main {
 
         for(int i=0 ; i < count ; i++) {
             for(int j=0 ; j < count ; j++) {
+                if(arr[j][i].equals("G")) arr[j][i] = "R";
+            }
+        }
+
+        for(int i=0 ; i < count ; i++) {
+            for(int j=0 ; j < count ; j++) {
                 if(!visited[j][i]) {
-                    bfs(j,i, arrSecond);
+                    bfs(j,i);
                     countSecond++;
                 }
             }
@@ -63,7 +61,7 @@ public class Main {
         System.out.println(countFirst + " " + countSecond);
     }
 
-    public static void bfs(int x, int y, String[][] arr) {
+    public static void bfs(int x, int y) {
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[] {x,y});
         visited[x][y] = true;
