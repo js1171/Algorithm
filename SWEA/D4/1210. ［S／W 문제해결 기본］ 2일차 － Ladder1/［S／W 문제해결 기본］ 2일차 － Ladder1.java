@@ -2,8 +2,7 @@ import java.util.*;
 import java.io.*;
 
 class Solution {
-        static int[][] arr;
-    static int result;
+    static int[][] arr;
 
     public static void main(String args[]) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -29,28 +28,26 @@ class Solution {
                 }
             }
             // 올라가면서 시작점 구하기
-            findStartIndex(99, endIndex);
-            sb.append("#").append(caseN).append(" ").append(result).append("\n");
+            sb.append("#").append(caseN).append(" ").append(findStartIndex(99, endIndex)).append("\n");
         }
         System.out.print(sb);
     }
 
-    static void findStartIndex(int x, int y) {
+    static int findStartIndex(int x, int y) {
         if (x == 0) {
-            result = y;
-            return;
+            return y;
         }
 
         // 좌, 우, 위쪽 순서로 점검하여 이동
         if (y - 1 >= 0 && arr[x][y - 1] == 1) {
             arr[x][y - 1] = 2;
-            findStartIndex(x, y - 1);
+            return findStartIndex(x, y - 1);
         } else if (y + 1 < 100 && arr[x][y + 1] == 1) {
             arr[x][y + 1] = 2;
-            findStartIndex(x, y + 1);
+            return findStartIndex(x, y + 1);
         } else {
             arr[x - 1][y] = 2;
-            findStartIndex(x - 1, y);
+            return findStartIndex(x - 1, y);
         }
     }
 }
