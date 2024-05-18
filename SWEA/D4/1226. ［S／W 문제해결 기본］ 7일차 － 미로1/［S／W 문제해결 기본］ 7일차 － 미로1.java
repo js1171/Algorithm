@@ -32,19 +32,25 @@ class Solution {
         System.out.print(sb);
 	}
     static void isAvailable(int x, int y, int[][] arr, boolean[][] visited) {
-    	visited[x][y] = true;
+    	Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[] {x, y});
+        visited[x][y] = true;
         
-        for (int i = 0 ; i < 4 ; i++) {
-        	int nx = x + dx[i];
-            int ny = y + dy[i];
-            
-            if (nx >= 0 && ny >= 0 && nx < 16 && ny < 16) {
-                if (arr[nx][ny] == 3) {
-                	result++;
-                    return;
-                }
-            	if (!visited[nx][ny] && arr[nx][ny] == 0) {
-                    isAvailable(nx, ny, arr, visited);
+        while (!queue.isEmpty()) {
+        	int[] now = queue.poll();
+            for (int i = 0 ; i < 4 ; i++) {
+            	int nx = now[0] + dx[i];
+                int ny = now[1] + dy[i];
+                
+                if (nx >= 0 && ny >= 0 && nx < 16 && ny < 16) {
+                	if (arr[nx][ny] == 3) {
+                    	result++;
+                        return;
+                    }
+                    if (arr[nx][ny] == 0 && !visited[nx][ny]) {
+                    	visited[nx][ny] = true;
+                        queue.add(new int[] {nx, ny});
+                    }
                 }
             }
         }
